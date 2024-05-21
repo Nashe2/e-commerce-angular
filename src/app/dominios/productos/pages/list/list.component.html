@@ -1,8 +1,39 @@
-<!--al consumir la imagenes de un servidor en la vista de productos usandola desde esta vista list se estan renderizando las imagenes con el componente <app-producto> -->
 <div>
-  <app-producto/>
-  <app-producto/>
-  <app-producto/>
-  <app-producto/>
-  <app-producto/>
+  <!--   <app-producto
+    title="Producto 1"
+    [price]="210"
+    [img]="'https://picsum.photos/id/1/200/300'"
+    (addToCart)="formChild($event)"
+  />
+  <app-producto
+    title="Producto 2"
+    [price]="300"
+    [img]="'https://picsum.photos/id/2/200/300'"
+    (addToCart)="formChild($event)"
+  />
+  <app-producto
+    title="Producto 3"
+    [price]="300"
+    [img]="'https://picsum.photos/id/3/200/300'"
+    (addToCart)="formChild($event)"
+  />
+  <app-producto
+    title="Producto 4"
+    [price]="300"
+    [img]="'https://picsum.photos/id/4/200/300'"
+    (addToCart)="formChild($event)"
+  />
+  <app-producto
+    title="Producto 5"
+    [price]="300"
+    [img]="'https://picsum.photos/id/5/200/300'"
+    (addToCart)="formChild($event)"
+  /> -->
+
+  <app-producto
+    *ngFor="let producto of productos"
+    [title]="producto.title"
+    [img]="producto.img"
+    [price]="producto.price"
+  />
 </div>
