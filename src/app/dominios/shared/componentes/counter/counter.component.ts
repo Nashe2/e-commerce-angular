@@ -21,5 +21,31 @@ export class CounterComponent implements OnChanges {
     console.log('-'.repeat(10));
     console.log('OnChanges');
     console.log(changes);
+
+    const duration = changes['duration'];
+    if(duration){
+      this.doSomething();
+    }
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit');
+    console.log('-'.repeat(10));
+    console.log('duration =>', this.duration);
+    console.log('message =>', this.message);
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    console.log('-'.repeat(10));
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
+  }
+
+  /* Metodo que se va a ejecutar cada vez que el input cambie */
+  doSomething() {
+    console.log('change duration');
   }
 }
