@@ -1,4 +1,10 @@
-import { Component, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import WaveSurfer from 'wavesurfer.js';
 
 @Component({
@@ -8,17 +14,23 @@ import WaveSurfer from 'wavesurfer.js';
   templateUrl: './wave-audio.component.html',
   styleUrl: './wave-audio.component.scss',
 })
-export class WaveAudioComponent {
+export class WaveAudioComponent implements AfterViewInit {
   /* A traves de un input se mandara el audio */
   /* el ! indica que no esta inicializada la variable y que no me arroje error, que que más adelante será inicializada */
   @Input({ required: true }) audioUrl!: string;
   @ViewChild('wave') container!: ElementRef;
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit(){
     //la referencia de container se obtiene con el decorador @ViewChild
+    if (this.container) {
+      console.log(this.container.nativeElement);
+    } else {
+      console.error('wave no está definido');
+    }
+
     WaveSurfer.create({
-      url: this.audioUrl,
-      container: this.container.nativeElement,
+    url: this.audioUrl,
+    container: this.container.nativeElement,
     });
   }
 }
