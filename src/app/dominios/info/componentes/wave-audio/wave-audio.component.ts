@@ -5,6 +5,7 @@ import {
   Input,
   ViewChild,
   AfterViewInit,
+  signal,
 } from '@angular/core';
 import WaveSurfer from 'wavesurfer.js';
 
@@ -30,20 +31,24 @@ export class WaveAudioComponent implements AfterViewInit {
   - Este audio se utiliza en la vista about, es decir el componente wave se usa en la vista about
   */
 
+
   @Input({ required: true }) audioUrl!: string;
   @ViewChild('wave') container!: ElementRef;
+  /*variable privada*/
+  private ws!: WaveSurfer;
+  isPlaying = signal(false);
 
   ngAfterViewInit() {
-    if (this.container) {
-      console.log(this.container.nativeElement);
-    } else {
-      console.error('wave no está definido');
-    }
-
-    /* Metodo de creacion del objeto */
-    WaveSurfer.create({
+    this.ws = WaveSurfer.create({
       url: this.audioUrl,
-      container: this.container.nativeElement,
+      container: this.container.nativeElement
     });
+    this.ws.on('play', () => this.isPlaying.set(true));
+    this.ws.on('pause', () => this.isPlaying.set(false));
+  }
+
+  /* metodo del evento click, permite poner play y pausa al audio llamando a la variable */
+  playPause(){
+    this.ws.playPause();
   }
 }
