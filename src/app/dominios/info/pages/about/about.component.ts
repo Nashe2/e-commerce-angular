@@ -3,10 +3,14 @@ import { CounterComponent } from '../../../shared/componentes/counter/counter.co
 import { CommonModule } from '@angular/common';
 import { WaveAudioComponent } from '../../componentes/wave-audio/wave-audio.component';
 
+
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CounterComponent, CommonModule, WaveAudioComponent],
+  imports: [CounterComponent, CommonModule, WaveAudioComponent, MatMenuModule, MatButtonModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
