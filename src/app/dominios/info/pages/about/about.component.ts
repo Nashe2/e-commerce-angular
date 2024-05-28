@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CounterComponent } from '../../../shared/componentes/counter/counter.component';
 import { CommonModule } from '@angular/common';
 import { WaveAudioComponent } from '../../componentes/wave-audio/wave-audio.component';
@@ -10,7 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CounterComponent, CommonModule, WaveAudioComponent, MatMenuModule, MatButtonModule],
+  imports: [ MatMenuModule, MatButtonModule,CounterComponent, CommonModule, WaveAudioComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })

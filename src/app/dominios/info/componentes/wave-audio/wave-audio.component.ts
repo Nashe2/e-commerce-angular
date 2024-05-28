@@ -5,14 +5,15 @@ import {
   Input,
   ViewChild,
   AfterViewInit,
-  signal,
+  signal
 } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import WaveSurfer from 'wavesurfer.js';
 
 @Component({
   selector: 'app-wave-audio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './wave-audio.component.html',
   styleUrl: './wave-audio.component.scss',
 })
@@ -41,7 +42,7 @@ export class WaveAudioComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.ws = WaveSurfer.create({
       url: this.audioUrl,
-      container: this.container.nativeElement
+      container: this.container.nativeElement,
     });
     this.ws.on('play', () => this.isPlaying.set(true));
     this.ws.on('pause', () => this.isPlaying.set(false));
