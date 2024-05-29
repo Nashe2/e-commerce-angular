@@ -68,16 +68,16 @@ button {
   color: inherit;
   -webkit-appearance: none;
   appearance: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*   -webkit-font-smoothing: antialiased */;
+/*   -moz-osx-font-smoothing: grayscale; */
 }
 
 body {
   font-family: "Roboto", sans-serif;
   background: #f5f5f5;
-  color: #111111;
+  /* color: #111111;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+-moz-osx-font-smoothing: grayscale; */
   font-weight: 300;
 }
 

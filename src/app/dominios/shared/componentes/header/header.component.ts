@@ -30,13 +30,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     this.hideSideMenu.update((prevState) => !prevState);
   }
 } */
-export class HeaderComponent implements OnDestroy {
-  mobileQuery: MediaQueryList;
+export class HeaderComponent /* implements OnDestroy */ {
+  /* mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = Array.from({ length: 5 }, (_, i) => `Nav item ${i + 1}`);
 
   fillerContent = Array.from(
-    { length: 50 },
+    { length: 5 },
     () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -55,5 +55,5 @@ export class HeaderComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
+  }*/
 }
