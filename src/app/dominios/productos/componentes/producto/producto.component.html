@@ -2,9 +2,9 @@
 <!-- estoy usando imagenes de un servidor para eso primero importare en el componente producto en el list.component-->
 
 <div>
-  <img [src]="img" alt="image" />
-  <h3>{{ title }}</h3>
-  <p>{{ price | currency }}</p>
+  <img [src]="producto.img" alt="image" />
+  <h3>{{ producto.title | uppercase }}</h3>
+  <p>{{ producto.price | currency:'$':'symbol':'1.' }}</p>
   <button mat-raised-button color="primary" (click)="addToCartHandler()">
     Agregar
   </button>

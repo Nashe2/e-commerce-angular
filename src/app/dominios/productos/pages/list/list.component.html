@@ -1,4 +1,4 @@
-<div>
+<div class="container mx-auto">
   <!--   <app-producto
     title="Producto 1"
     [price]="210"
@@ -29,11 +29,13 @@
     [img]="'https://picsum.photos/id/5/200/300'"
     (addToCart)="formChild($event)"
   /> -->
-
-  <app-producto
-    *ngFor="let producto of productos"
-    [title]="producto.title"
-    [img]="producto.img"
-    [price]="producto.price"
-  />
+  <app-header />
+<!--   <h3>{{ cart().length }}</h3> -->
+  <div class="flex-container">
+    <app-producto
+      *ngFor="let producto of productos"
+      [producto]="producto"
+      (addToCartEvent)="addToCart($event)"
+    />
+  </div>
 </div>
