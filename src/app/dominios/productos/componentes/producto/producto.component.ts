@@ -5,11 +5,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Producto } from '@models/producto.model';
+import { ReversePipe } from '@shared/pipes/reverse.pipe';
 
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule, CurrencyPipe, UpperCasePipe], // ReactiveFormsModule, MatCardModule, MatButtonModule
+  imports: [ReactiveFormsModule, MatButtonModule, CurrencyPipe, UpperCasePipe, ReversePipe], // ReactiveFormsModule, MatCardModule, MatButtonModule
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.scss',
 })

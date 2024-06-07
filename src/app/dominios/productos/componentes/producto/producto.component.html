@@ -3,7 +3,7 @@
 
 <div>
   <img [src]="producto.img" alt="image" />
-  <h3>{{ producto.title | uppercase }}</h3>
+  <h3>{{ producto.title | uppercase | reverse }}</h3>
   <p>{{ producto.price | currency:'$':'symbol':'1.' }}</p>
   <button mat-raised-button color="primary" (click)="addToCartHandler()">
     Agregar
