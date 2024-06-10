@@ -3,11 +3,12 @@ import { Component, OnInit, signal } from '@angular/core';
 import { ProductoComponent } from './../../componentes/producto/producto.component';
 import { Producto } from '@models/producto.model';
 import { HeaderComponent } from '@shared/componentes/header/header.component';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductoComponent, HeaderComponent], //HeaderComponent
+  imports: [CommonModule, ProductoComponent, HeaderComponent, MatCardModule], //HeaderComponent
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
