@@ -68,10 +68,17 @@ h1.example-app-name {
   justify-content: center; /* centra horizontalmente */
 }
 
-.producto-en-carrito {
+.producto-en-carrito img {
   display: flex;
   color: black;
   justify-content: center; /* centra horizontalmente */
+}
+
+.carrito-img{
+  /* img */
+width: 50px; /* Ajusta este valor según el tamaño deseado */
+height: 50px; /* Ajusta este valor según el tamaño deseado */
+object-fit: cover; /* Esto asegura que la imagen se ajuste correctamente al contenedor */
 }
 
 .container-button-carrito {

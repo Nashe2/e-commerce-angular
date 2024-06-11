@@ -48,10 +48,8 @@
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" position="end">
       <h2 class="titulo-contenido-carrito">Mis Productos</h2>
-      <!-- <mat-nav-list> -->
-      <!--   <mat-list-item *ngFor="let producto of cart"> </mat-list-item> -->
-      <!-- </mat-nav-list> -->
       <div class="producto-en-carrito" *ngFor="let producto of cart">
+        <img class="carrito-img" [src]="producto.img">
         {{ producto.title }}
         {{ producto.price }}
       </div>
