@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 export class ListComponent implements OnInit {
   productos: Producto[] = [];
 
+  /* guarda en el carrito los producros que seleccione */
   cart = signal<Producto[]>([]);
 
   ngOnInit(): void {

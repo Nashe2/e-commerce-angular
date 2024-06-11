@@ -1,6 +1,6 @@
 <div class="example-container">
   <!-- [class.example-is-mobile]="mobileQuery.matches" -->
-  <mat-toolbar color="primary" class="example-toolbar">
+  <mat-toolbar color="primary" class="example-toolbar-carrito">
     <button
       mat-button
       [matMenuTriggerFor]="menu"
@@ -31,12 +31,42 @@
         <span>Buscar</span>
       </button>
     </mat-menu>
-    <div class="button-shopping">
-      <mat-icon
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontIcon="shopping_cart"
-      ></mat-icon>
+    <div class="carrito">
+      <!-- <p class="text-xl">Carrito</p> -->
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Carrito">
+        <!-- (click)="sidenav.toggle()" -->
+        <!-- (click)="toogleSideMenu()" -->
+         <div>{{ cart.length}}</div>
+        <mat-icon
+          fontIcon="shopping_cart"
+          (click)="toogleSideMenu()"
+        ></mat-icon>
+      </button>
     </div>
   </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" position="end">
+      <h2 class="titulo-contenido-carrito">Mis Productos</h2>
+      <!-- <mat-nav-list> -->
+      <!--   <mat-list-item *ngFor="let producto of cart"> </mat-list-item> -->
+      <!-- </mat-nav-list> -->
+      <div class="producto-en-carrito" *ngFor="let producto of cart">
+        {{ producto.title }}
+        {{ producto.price }}
+      </div>
+
+      <div class="container-button-carrito">
+        <a mat-stroked-button href="https://www.google.com/" target="_blank"
+          >Seguir comprando</a
+        >
+        <a mat-stroked-button href="https://www.google.com/" target="_blank"
+          >Pagar</a
+        >
+      </div>
+    </mat-sidenav>
+    <!-- <mat-sidenav-content> -->
+    <!--    El contenido principal -->
+    <!--  </mat-sidenav-content> -->
+  </mat-sidenav-container>
 </div>

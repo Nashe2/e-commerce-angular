@@ -34,7 +34,57 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
-.button-shopping{
-  justify-content: flex-end;
+.carrito {
+  margin-left: auto;
 }
 
+/* #carrito-btn { */
+/*   color: white; */
+/*   border: none; */
+/*   padding: 10px 10px; */
+/*   cursor: pointer; */
+/*   border-radius: 5px; */
+/*   font-size: 16px; */
+/* } */
+/*  */
+/* #carrito-btn:hover { */
+/*   background-color: #c21e8c */
+/* } */
+/*  */
+.sidenav-container {
+  height: 100vh;
+  background-color: transparent;
+}
+
+/* clase para desplazar el contenido del carrito */
+.mat-sidenav {
+  width: 250px;
+  background-color: rgb(240, 165, 235);
+}
+
+.titulo-contenido-carrito {
+  display: flex;
+  color: blueviolet;
+  justify-content: center; /* centra horizontalmente */
+}
+
+.producto-en-carrito {
+  display: flex;
+  color: black;
+  justify-content: center; /* centra horizontalmente */
+}
+
+.container-button-carrito {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  /*   align-items: center; /* centra verticalmente */
+  height: 200px; /* altura del contenedor */
+  margin: 1px;
+}
+.button-carrito {
+  display: table-cell;
+  max-width: 600px;
+}
+.mat-sidenav-content {
+  background-color: transparent; /* Asegúrate de que el contenido principal tenga un fondo blanco */
+}
