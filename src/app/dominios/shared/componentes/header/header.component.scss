@@ -36,6 +36,7 @@ h1.example-app-name {
 
 .carrito {
   margin-left: auto;
+  padding-top: 1px;
 }
 
 /* #carrito-btn { */
@@ -68,17 +69,22 @@ h1.example-app-name {
   justify-content: center; /* centra horizontalmente */
 }
 
+.contenedor {
+  justify-content: space-between; /* centra horizontalmente */
+  align-items: center;
+}
 .producto-en-carrito img {
   display: flex;
   color: black;
-  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  justify-content: space-between;
 }
 
-.carrito-img{
+.carrito-img {
   /* img */
-width: 50px; /* Ajusta este valor según el tamaño deseado */
-height: 50px; /* Ajusta este valor según el tamaño deseado */
-object-fit: cover; /* Esto asegura que la imagen se ajuste correctamente al contenedor */
+  width: 50px; /* Ajusta este valor según el tamaño deseado */
+  height: 50px; /* Ajusta este valor según el tamaño deseado */
+  object-fit: cover; /* Esto asegura que la imagen se ajuste correctamente al contenedor */
 }
 
 .container-button-carrito {
