@@ -36,7 +36,7 @@
       <button mat-icon-button (click)="sidenav.toggle()" aria-label="Carrito">
         <!-- (click)="sidenav.toggle()" -->
         <!-- (click)="toogleSideMenu()" -->
-        <div>{{ cart.length }}</div>
+        <div>{{ cart().length }}</div>
         <mat-icon
           fontIcon="shopping_cart"
           (click)="toogleSideMenu()"
@@ -49,7 +49,7 @@
     <mat-sidenav #sidenav mode="side" position="end">
       <h2 class="titulo-contenido-carrito">Mis Productos</h2>
       <div class="contenedor">
-        <div class="producto-en-carrito" *ngFor="let producto of cart">
+        <div class="producto-en-carrito" *ngFor="let producto of cart()">
           <img
             class="carrito-img"
             [src]="producto.img"
