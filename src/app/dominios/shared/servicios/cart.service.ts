@@ -10,7 +10,7 @@ export class CartService {
 /*Este signal guarda en el carrito los productos que seleccione el usuario*/
 cart = signal<Producto[]>([]);
 total = computed(() => {
-  const cart = this.cart();
+  const cart = this.cart();/* subscribcion */
   return cart.reduce((total, producto) => total + producto.price, 0);
 })
 

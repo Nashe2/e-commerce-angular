@@ -12,7 +12,9 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>home</mat-icon>
-        <span>Home</span>
+        <!-- <span> -->
+        <!--   <a routerLink="/">Home</a> -->
+        <!-- </span> -->
       </button>
       <button mat-menu-item disabled>
         <mat-icon>checkroom</mat-icon>
@@ -20,11 +22,19 @@
       </button>
       <button mat-menu-item>
         <mat-icon>search</mat-icon>
-        <span>Servicios</span>
+        <!-- <span> -->
+        <!--   <a routerLink="servicio">Servicio</a> -->
+        <!-- </span> -->
       </button>
       <button mat-menu-item>
         <mat-icon>notifications_off</mat-icon>
         <span>Disable alerts</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>about</mat-icon>
+        <!-- <span> -->
+        <!--   <a routerLink="about">Nosotros</a> -->
+        <!-- </span> -->
       </button>
       <button mat-menu-item>
         <mat-icon>search</mat-icon>
@@ -55,6 +65,7 @@
             [src]="producto.img"
             [alt]="producto.title"
           />
+          <!-- [src]="producto.images[0]" -->
           <h3>{{ producto.title }}</h3>
           <div>
             <p>{{ producto.price }}</p>
@@ -62,7 +73,7 @@
           <button>-</button>
           <button>+</button>
         </div>
-        <p>Total: {{total()}} </p>
+        <p>Total: {{ total() }}</p>
       </div>
       <div class="container-button-carrito">
         <a mat-stroked-button href="https://www.google.com/" target="_blank"
