@@ -6,7 +6,7 @@
     <img [src]="producto.images[0]" [alt]="producto.title" />
   </a>
   <h3>{{ producto.title | uppercase }}</h3> <!-- | reverse -->
-  <p>{{ producto.price | currency:'$':'symbol':'1.' }}</p>
+  <p>{{ producto.price | currency }}</p> <!-- :'$':'symbol':'1.' -->
   <p>{{ producto.creationAt}}</p> <!-- | timeAgo -->
   <button mat-raised-button color="primary" (click)="addToCartHandler()">
     Agregar
