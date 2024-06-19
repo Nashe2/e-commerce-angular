@@ -23,9 +23,11 @@
       "ES2022",
       "dom"
     ],
+    /* Importaciones cortas en typescript, generado mediante los siguientes alias */
     "paths": {
       "@models/*": ["./src/app/models/*"],
-      "@shared/*": ["./src/app/dominios/shared/*"]
+      "@shared/*": ["./src/app/dominios/shared/*"],
+      "@productos/*": ["./src/app/dominios/productos/*"]
     },
   },
   "angularCompilerOptions": {

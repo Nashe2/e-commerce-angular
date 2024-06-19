@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { ProductoComponent } from './../../componentes/producto/producto.component';
+import { ProductoComponent } from '@productos/componentes/producto/producto.component';
 import { Producto } from '@models/producto.model';
 import { HeaderComponent } from '@shared/componentes/header/header.component';
 import { MatCardModule } from '@angular/material/card';
