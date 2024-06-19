@@ -7,10 +7,12 @@ import { WaveAudioComponent } from '../../componentes/wave-audio/wave-audio.comp
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 
+import { HighlighDirective } from '@shared/directivas/highligh.directive';
+
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [ MatMenuModule, MatButtonModule,CounterComponent, CommonModule, WaveAudioComponent],
+  imports: [ MatMenuModule, MatButtonModule,CounterComponent, CommonModule, WaveAudioComponent, HighlighDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
