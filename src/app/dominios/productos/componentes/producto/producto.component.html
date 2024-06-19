@@ -1,20 +1,14 @@
 <!-- su responsabilidad solo es renderizar un producto como tal-->
-<!-- estoy usando imagenes de un servidor para eso primero importare en el componente producto en el list.component-->
+<!-- estoy usando una API REST-->
 
 <div>
-  <img [src]="producto.img" alt="image" />
-  <h3>{{ producto.title | uppercase | reverse }}</h3>
+  <a href="#" class="h-full w-full">
+    <img [src]="producto.images[0]" [alt]="producto.title" />
+  </a>
+  <h3>{{ producto.title | uppercase }}</h3> <!-- | reverse -->
   <p>{{ producto.price | currency:'$':'symbol':'1.' }}</p>
+  <p>{{ producto.creationAt}}</p> <!-- | timeAgo -->
   <button mat-raised-button color="primary" (click)="addToCartHandler()">
     Agregar
   </button>
-  <!--<button (click)="addToCartHandler()">Agregar</button>-->
 </div>
-
-<!--
-<mat-grid-list cols="3" rowHeight="2:1">
-  <img [src]="img" alt="image" />
-  <h3>Producto 1</h3>
-  <p>$3000</p>
-</mat-grid-list>
--->

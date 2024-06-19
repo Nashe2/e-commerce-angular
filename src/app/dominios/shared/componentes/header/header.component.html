@@ -62,10 +62,9 @@
         <div class="producto-en-carrito" *ngFor="let producto of cart()">
           <img
             class="carrito-img"
-            [src]="producto.img"
+            [src]="producto.images[0]"
             [alt]="producto.title"
           />
-          <!-- [src]="producto.images[0]" -->
           <h3>{{ producto.title }}</h3>
           <div>
             <p>{{ producto.price }}</p>

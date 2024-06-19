@@ -11,7 +11,7 @@
       <!-- <h3 class="text-xl">{{ cart().length }}</h3> -->
     <div class="flex-container">
       <app-producto
-        *ngFor="let producto of productos"
+        *ngFor="let producto of productos()"
         [producto]="producto"
         (addToCartEvent)="addToCart($event)"
       />
