@@ -1,14 +1,16 @@
 <!-- su responsabilidad solo es renderizar un producto como tal-->
 <!-- estoy usando una API REST-->
 
-<div>
-  <a href="#" class="h-full w-full">
-    <img [src]="producto.images[0]" [alt]="producto.title" />
-  </a>
-  <h3>{{ producto.title | uppercase }}</h3> <!-- | reverse -->
-  <p>{{ producto.price }}</p> <!-- :'$':'symbol':'1.' -->
-  <p>{{ producto.creationAt | timeAgo}}</p>
-  <button mat-raised-button color="primary" (click)="addToCartHandler()">
-    Agregar
-  </button>
+<div class="product-grid">
+  <div class="product-item">
+    <a href="#">
+      <img [src]="producto.images[0]" [alt]="producto.title" />
+    </a>
+    <h3>{{ producto.title | uppercase }}</h3>
+    <p>{{ producto.price }}</p>
+    <p>{{ producto.creationAt | timeAgo }}</p>
+    <button mat-raised-button color="primary" (click)="addToCartHandler()">
+      Agregar
+    </button>
+  </div>
 </div>
