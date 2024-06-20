@@ -1,15 +1,8 @@
 <mat-card-content>
   <mat-card-header>
-    <app-header/>
-    <!-- <hr> -->
-    <!-- <hr> -->
-    <!-- <hr> -->
-    <!-- <hr> -->
-    <!-- <hr> -->
-    <!-- <hr> -->
-    <!-- <hr> -->
-      <!-- <h3 class="text-xl">{{ cart().length }}</h3> -->
-    <div class="flex-container">
+    <app-header />
+    <div class="content-about">
+      <h1>Productos</h1>
       <app-producto
         *ngFor="let producto of productos()"
         [producto]="producto"
