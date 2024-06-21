@@ -7,11 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { Producto } from '@models/producto.model';
 import { ReversePipe } from '@shared/pipes/reverse.pipe';
 import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule, TimeAgoPipe, CurrencyPipe, UpperCasePipe, ReversePipe], // ReactiveFormsModule, MatCardModule, MatButtonModule
+  imports: [ReactiveFormsModule, MatButtonModule, TimeAgoPipe, CurrencyPipe, UpperCasePipe, ReversePipe, RouterLinkWithHref],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.scss',
 })

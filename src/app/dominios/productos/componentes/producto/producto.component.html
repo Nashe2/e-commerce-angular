@@ -3,7 +3,7 @@
 
 <div class="product-grid">
   <div class="product-item">
-    <a href="#">
+    <a [routerLink]="['/producto', producto.id]">
       <img [src]="producto.images[0]" [alt]="producto.title" />
     </a>
     <h3>{{ producto.title | uppercase }}</h3>
