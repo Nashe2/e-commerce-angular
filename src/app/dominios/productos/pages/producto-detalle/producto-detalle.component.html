@@ -11,6 +11,7 @@
       *ngFor="let img of producto()?.images"
       [src]="img"
       (click)="changeCover(img)"
+      [class.border-pink]="img === cover()"
     />
   </mat-grid-list>
 
@@ -18,7 +19,7 @@
     <h2>{{ producto()?.category?.name | uppercase }}</h2>
     <h1>{{ producto()?.title }}</h1>
     <p>{{ producto()?.description }}</p>
-    <p class="detalle-precio">{{ producto()?.price }}</p>
-    <button mat-raised-button color="primary">Agregar al carrito</button>
+    <p class="detalle-precio">{{ producto()?.price | currency:'$':'symbol':'1.0'}}</p>
+    <button mat-raised-button color="primary" (click)="addToCart()">Agregar al carrito</button>
   </div>
 </div>

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ProductoComponent } from '@productos/componentes/producto/producto.component';
 import { Console } from 'console';
 import { Producto } from '@models/producto.model';
+import { CartService } from '@shared/servicios/cart.service';
 
 @Component({
   selector: 'app-producto-detalle',
@@ -25,6 +26,7 @@ export class ProductoDetalleComponent {
   producto = signal<Producto | null>(null);
   cover = signal('');
   private productoService = inject(ProductoService);
+  private cartService = inject(CartService);
 
   ngOnInit() {
     if (this.id) {
@@ -41,5 +43,13 @@ export class ProductoDetalleComponent {
   Funcionalidad dinamica*/
   changeCover(newImg: string) {
     this.cover.set(newImg);
+  }
+
+  /* Function para agregar productos al carrito */
+  addToCart(){
+    const producto = this.producto();
+    if(producto){
+      this.cartService.addToCart(producto);
+    }
   }
 }
