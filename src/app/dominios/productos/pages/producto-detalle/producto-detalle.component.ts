@@ -23,17 +23,23 @@ export class ProductoDetalleComponent {
   @Input() id?: string;
 
   producto = signal<Producto | null>(null);
-
+  cover = signal('');
   private productoService = inject(ProductoService);
 
   ngOnInit() {
     if (this.id) {
       this.productoService.getOne(this.id).subscribe({
         next: (producto) => {
-          console.log(producto);
           this.producto.set(producto);
+          if (producto.images.length > 0) this.cover.set(producto.images[0]);
         },
       });
     }
+  }
+
+  /* cada clic muestra otra imagen del mismo producto
+  Funcionalidad dinamica*/
+  changeCover(newImg: string) {
+    this.cover.set(newImg);
   }
 }

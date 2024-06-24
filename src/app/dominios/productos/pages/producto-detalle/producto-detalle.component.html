@@ -1,34 +1,21 @@
 <div class="content-about">
   <mat-grid-list cols="1" rowHeight="5rem">
     <mat-grid-tile>
-      <img
-        class="product-img"
-        src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"
-      />
+      <img class="product-img" [src]="cover()" />
     </mat-grid-tile>
   </mat-grid-list>
 
   <mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile>
-      <img
-        class="product-img"
-        src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"
-    /></mat-grid-tile>
-    <mat-grid-tile>
-      <img
-        class="product-img"
-        src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"
-    /></mat-grid-tile>
-    <mat-grid-tile>
-      <img
-        class="product-img"
-        src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"
-      />
-    </mat-grid-tile>
+    <img
+      class="product-img"
+      *ngFor="let img of producto()?.images"
+      [src]="img"
+      (click)="changeCover(img)"
+    />
   </mat-grid-list>
 
   <div class="content-detalle-producto">
-    <h2>BRAND NAME</h2>
+    <h2>{{ producto()?.category?.name | uppercase }}</h2>
     <h1>{{ producto()?.title }}</h1>
     <p>{{ producto()?.description }}</p>
     <p class="detalle-precio">{{ producto()?.price }}</p>
