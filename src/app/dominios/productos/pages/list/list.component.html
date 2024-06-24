@@ -1,6 +1,13 @@
 <mat-card-content>
   <mat-card-header>
     <app-header />
+    <div>
+      <ul>
+        <li *ngFor="let category of categories()">
+          <a href="">{{ category.name }}</a>
+        </li>
+      </ul>
+    </div>
     <div class="content-about">
       <h1>Productos</h1>
       <app-producto

@@ -6,6 +6,8 @@ import { HeaderComponent } from '@shared/componentes/header/header.component';
 import { MatCardModule } from '@angular/material/card';
 import { CartService } from '@shared/servicios/cart.service';
 import { ProductoService } from '@shared/servicios/producto.service';
+import { Category } from '@models/categoty.model';
+import { CategoryService } from '@shared/servicios/category.service';
 
 @Component({
   selector: 'app-list',
@@ -15,13 +17,24 @@ import { ProductoService } from '@shared/servicios/producto.service';
   styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
-  /* productos: Producto[] = []; */
+
   productos = signal<Producto[]>([]);
+  categories = signal<Category[]>([]);
+    /* Inyeccion de dependecias*/
   private cartService = inject(CartService);
-  /* Inyeccion de dependecias para conectarse al API */
   private productoService = inject(ProductoService);
+  private categoryService = inject(CategoryService);
 
   ngOnInit() {
+    this.getProductos();
+    this.getCategories();
+  }
+
+  addToCart(producto: Producto) {
+    this.cartService.addToCart(producto);
+  }
+
+  private getProductos() {
     this.productoService.getProductos().subscribe({
       next: (productos) => {
         this.productos.set(productos);
@@ -32,8 +45,14 @@ export class ListComponent implements OnInit {
     })
   }
 
+  private getCategories() {
+    this.categoryService.getAll().subscribe({
+      next: (data) => {
+        this.categories.set(data);
+      },
+      error: () => {
 
-  addToCart(producto: Producto) {
-    this.cartService.addToCart(producto);
+      }
+    })
   }
 }
