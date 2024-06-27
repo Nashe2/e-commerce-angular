@@ -13,7 +13,13 @@
       <button mat-menu-item>
         <mat-icon>home</mat-icon>
         <span>
-          <a routerLink="/">Home</a>
+          <a
+            routerLink="/"
+            routerLinkActive="underline"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="block hover:underline"
+            >Home</a
+          >
         </span>
       </button>
       <button mat-menu-item disabled>
@@ -23,7 +29,7 @@
       <button mat-menu-item>
         <mat-icon>search</mat-icon>
         <span>
-          <a routerLink="servicio">Servicio</a>
+          <a routerLink="/servicio" routerLinkActive="underline">Servicio</a>
         </span>
       </button>
       <button mat-menu-item>
@@ -33,7 +39,12 @@
       <button mat-menu-item>
         <mat-icon>about</mat-icon>
         <span>
-          <a routerLink="about">Nosotros</a>
+          <a
+            routerLink="/about"
+            routerLinkActive="underline"
+            class="block hover:underline"
+            >Nosotros</a
+          >
         </span>
       </button>
       <button mat-menu-item>

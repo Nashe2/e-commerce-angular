@@ -20,8 +20,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { Producto } from '@models/producto.model';
 import { RequiredValidator } from '@angular/forms';
 import { CartService } from '@shared/servicios/cart.service';
-import { RouterLinkWithHref } from '@angular/router';
-/* import { ListComponent } from "../../../productos/pages/list/list.component"; */
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 
 
 @Component({
@@ -38,7 +37,7 @@ import { RouterLinkWithHref } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     RouterLinkWithHref,
-    /* ListComponent, */
+    RouterLinkActive
   ],
 })
 export class HeaderComponent /* implements OnDestroy */ {
