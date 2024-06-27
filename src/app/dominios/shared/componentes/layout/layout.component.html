@@ -1,6 +1,52 @@
-<mat-card-content>
+<!-- <mat-card-content>
   <mat-card-header>
-    <app-header />
-    <router-outlet />
+
   </mat-card-header>
 </mat-card-content>
+ -->
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Tiendita</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="example-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-nav-list>
+        @for (item of menuItems; track item) {
+        <a mat-list-item [routerLink]="item?.path" [disabled]="!item?.path">
+          @if (item?.icon) {
+          <mat-icon>{{ item.icon }}</mat-icon>
+          } @else {
+          <mat-icon> check </mat-icon>
+          }
+          {{ item.name }}
+        </a>
+        }
+        <hr />
+
+        <a mat-list-item>
+          <mat-icon>shopping_cart</mat-icon>
+          Articulos: {{ cart().length }}
+        </a>
+      </mat-nav-list>
+      <!-- <app-header /> -->
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+    <!--  <app-header></app-header> -->
+      <router-outlet />
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

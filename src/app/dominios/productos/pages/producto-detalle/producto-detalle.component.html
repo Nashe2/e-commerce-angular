@@ -1,25 +1,52 @@
-<div class="content-about">
-  <mat-grid-list cols="1" rowHeight="5rem">
-    <mat-grid-tile>
-      <img class="product-img" [src]="cover()" />
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="container">
+  <div class="row">
+    <div class="col center">
+      <mat-grid-list cols="1">
+        <img class="product-img" [src]="cover()" width="200px" height="300px" />
+      </mat-grid-list>
+    </div>
+  </div>
 
-  <mat-grid-list cols="3" rowHeight="2:1">
-    <img
-      class="product-img"
-      *ngFor="let img of producto()?.images"
-      [src]="img"
-      (click)="changeCover(img)"
-      [class.border-pink]="img === cover()"
-    />
-  </mat-grid-list>
+  <div class="row">
+    <div class="col center">
+      <mat-grid-list cols="3" rowHeight="2:1">
+        <img
+          class="product-img pointer"
+          width="200px"
+          height="300px"
+          *ngFor="let img of producto()?.images"
+          [src]="img"
+          (click)="changeCover(img)"
+          [class.border-pink]="img === cover()"
+        />
+      </mat-grid-list>
+    </div>
+  </div>
 
-  <div class="content-detalle-producto">
-    <h2>{{ producto()?.category?.name | uppercase }}</h2>
-    <h1>{{ producto()?.title }}</h1>
-    <p>{{ producto()?.description }}</p>
-    <p class="detalle-precio">{{ producto()?.price | currency:'$':'symbol':'1.0'}}</p>
-    <button mat-raised-button color="primary" (click)="addToCart()">Agregar al carrito</button>
+  <div class="row">
+    <div class="col">
+      <mat-card class="margin-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{ producto()?.title }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h2>{{ producto()?.category?.name | uppercase }}</h2>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ producto()?.description }}</p>
+          <p class="detalle-precio">
+            {{ producto()?.price | currency : "$" : "symbol" : "1.0" }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="addToCart()">
+            Agregar al carrito
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 </div>
