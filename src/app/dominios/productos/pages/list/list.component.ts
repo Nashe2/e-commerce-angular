@@ -35,7 +35,7 @@ import { ProductoService } from '@shared/servicios/producto.service';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
-export class ListComponent implements OnInit, OnChanges {
+export default class ListComponent implements OnInit, OnChanges {
 
   productos = signal<Producto[]>([]);
   categories = signal<Category[]>([]);
