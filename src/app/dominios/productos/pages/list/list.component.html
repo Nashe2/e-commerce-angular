@@ -1,20 +1,36 @@
-<mat-card-content>
+<mat-card>
   <mat-card-header>
-    <app-header />
-    <div>
-      <ul>
-        <li *ngFor="let category of categories()">
-          <a href="">{{ category.name }}</a>
-        </li>
-      </ul>
-    </div>
-    <div class="content-about">
-      <h1>Productos</h1>
-      <app-producto
-        *ngFor="let producto of productos()"
-        [producto]="producto"
-        (addToCartEvent)="addToCart($event)"
-      />
-    </div>
+    Lista de productos
+  </mat-card-header>
+
+  <mat-card-content>
+      <!-- <app-header /> -->
+      <div>
+        <ul>
+          <li>
+            <a mat-button routerLink="/">All</a>
+          </li>
+          <li *ngFor="let category of categories()">
+            <a mat-button [routerLink]="['/']" [queryParams]="{ category_id: category.id }">
+              {{ category.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="content-about">
+        <h1>Productos</h1>
+        <app-producto
+          *ngFor="let producto of productos()"
+          [producto]="producto"
+          (addToCartEvent)="addToCart($event)"
+        />
+      </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- <mat-card-content>
+  <mat-card-header>
+
   </mat-card-header>
 </mat-card-content>
+ -->
