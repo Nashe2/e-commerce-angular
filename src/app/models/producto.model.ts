@@ -9,3 +9,10 @@ export interface Producto {
   creationAt: string;
   category: Category;
 }
+
+export interface ProductoCarrito {
+  id: number;
+  count: number;
+  total: number;
+  producto: Producto;
+}

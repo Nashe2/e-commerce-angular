@@ -3,14 +3,14 @@
 
   </mat-card-header>
 </mat-card-content>
- -->
+-->
 
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="example-app-name">Tiendita</h1>
+    <h1 class="example-app-name">Online</h1>
   </mat-toolbar>
 
   <mat-sidenav-container
@@ -36,16 +36,45 @@
         }
         <hr />
 
-        <a mat-list-item>
-          <mat-icon>shopping_cart</mat-icon>
-          Articulos: {{ cart().length }}
-        </a>
+        <mat-accordion>
+          <mat-expansion-panel style="box-shadow: none">
+            <mat-expansion-panel-header style="margin-left: -8px">
+              <mat-icon>shopping_cart</mat-icon>
+              Articulos: {{ cart().length }}
+            </mat-expansion-panel-header>
+
+            @for(producto of cart(); track producto; let idx = $index){
+            <a class="producto-en-carrito">
+              {{ producto.producto.title }}
+              <br />
+
+              <div #espaciado class="espacio">
+                <span> {{ producto.count }} </span>
+                <span> {{ producto.producto.price | currency }} </span>
+                <span> {{ producto.total | currency }} </span>
+              </div>
+              <br />
+
+              <div>
+                <button mat-icon-button (click)="onClickRestar(producto)">
+                  <mat-icon>remove</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onClickSumar(producto)">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </a>
+            }
+            <a  class="producto-en-carrito">total: {{total()}}</a>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--  </a> -->
       </mat-nav-list>
       <!-- <app-header /> -->
     </mat-sidenav>
 
     <mat-sidenav-content>
-    <!--  <app-header></app-header> -->
+      <!--  <app-header></app-header> -->
       <router-outlet />
     </mat-sidenav-content>
   </mat-sidenav-container>

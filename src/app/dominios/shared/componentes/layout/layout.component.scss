@@ -29,3 +29,19 @@ h1.example-app-name {
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
+
+// Actual
+.producto-en-carrito {
+  height: fit-content;
+
+  div#espaciado {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// Antiguo
+.producto-en-carro div.espacio {
+  display: flex;
+  justify-content: space-between;
+}

@@ -10,6 +10,9 @@ import { HeaderComponent } from '../header/header.component';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MenuItem } from '@models/menu-item.model';
 import { CartService } from '@shared/servicios/cart.service';
+import { Producto, ProductoCarrito } from '@models/producto.model';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
@@ -23,45 +26,48 @@ import { CartService } from '@shared/servicios/cart.service';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatExpansionModule,
+    CurrencyPipe
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
 export class LayoutComponent {
-
   private cartService = inject(CartService);
-  cart = this.cartService.cart;
+  cart = this.cartService.cartMenu;
+
+
+  total = this.cartService.total;
 
   menuItems: MenuItem[] = [
     {
       name: 'Home',
       path: '/',
-      icon: 'home'
+      icon: 'home',
     },
     {
       name: 'Productos',
-      icon: 'checkroom'
+      icon: 'checkroom',
     },
     {
       name: 'Servicios',
       path: '/servicio',
-      icon: 'search'
+      icon: 'search',
     },
     {
       name: 'Desactivar alertas',
-      icon: 'notifications_off'
+      icon: 'notifications_off',
     },
     {
       name: 'Nosotros',
       path: '/about',
-      icon: 'about'
+      icon: 'info',
     },
     {
       name: 'Buscar',
-      icon: 'search'
-    }
+      icon: 'search',
+    },
   ];
-
 
   mobileQuery: MediaQueryList;
 
@@ -75,5 +81,14 @@ export class LayoutComponent {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  onClickRestar(producto: ProductoCarrito): void {
+    this.cartService.restarProductoCarrito(producto.producto)
+    //this.cartService.deleteToCart(producto.);
+  }
+
+  onClickSumar(producto: ProductoCarrito): void {
+    this.cartService.addToCart(producto.producto);
   }
 }
